@@ -29,9 +29,8 @@ do
 	#Read menuChoice takes user input
 	read menuChoice
 	case $menuChoice in 
-	   1)privateIP=$(hostname -I)
-		 echo "Public IP: $(wget -qO- ifconfig.me)  Private IP: $privateIP";;
-	   2) echo "Current User";;
+	   1) echo "Public IP: $(wget -qO- ifconfig.me)  Private IP: $(hostname -I)";;
+	   2) echo "$(whoami)";;
  	   3) echo "CPU Information";;
 	   4) echo "Memory Information";;
 	   5) echo "Top Memory Processes";;
