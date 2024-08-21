@@ -31,7 +31,7 @@ do
 	case $menuChoice in 
 	   1) echo "Public IP: $(wget -qO- ifconfig.me)  Private IP: $(hostname -I)";;
 	   2) echo "$(whoami)";;
- 	   3) echo "CPU Information";;
+ 	   3) echo "This computer has $(getconf _NPROCESSORS_ONLN) CPU";;
 	   4) echo "Memory Information";;
 	   5) echo "Top Memory Processes";;
 	   6) echo "Top CPU Processes";;
