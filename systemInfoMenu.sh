@@ -36,7 +36,11 @@ do
 	      echo "Available Memory: $(cat /proc/meminfo | grep 'MemAvailable' | awk '{print $2, $3}') ";;
 	   5) echo "$(ps aux --sort -%mem | head -5)";;
 	   6) echo "$(ps aux --sort -%cpu | head -5)";;
-	   7) echo "Network Connectivity";;
+	   7) echo "Please enter a web address or IP address"
+	      read userInput 
+              packetLoss=$(ping -c 3 -q "$userInput" | grep "packet loss" | awk '{print $6}')
+	      connectionSpeed=$(ping -c 3 -q "$userInput" | grep "time" | awk '{print $10}')
+	      echo "$userInput has $packetLoss data packet loss and connected in $connectionSpeed";;
 	   8) echo "GoodBye ✌"; break;;
 	   *) echo "Invalid option. Please choose 1-8";;
 	esac
